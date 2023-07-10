@@ -74,28 +74,9 @@ const GlobalStyle = createGlobalStyle`
   * {
       margin: 0;
       padding: 0;
-      font-family: Noto Sans KR;
-      font-style: normal;
-      font-weight: bold;
+      font-family: "Noto Sans KR", sans-serif;
       box-sizing: border-box;
     }
-
-  body {
-    margin: auto;
-    font-size: 16px;
-    font-weight: 400;
-    overflow-x: hidden;
-    zoom: 1;
-    @media screen and (max-width: 1440px){
-      zoom: 0.8;
-      height: 125vh;
-      max-height:${window.innerHeight * 1.25 + "px"};
-    }
-    @media screen and (max-width: 1200px){
-      overflow-x: auto;
-      overflow-y: auto;
-    }
-  }
 
   input:focus,
   select:focus,
@@ -106,7 +87,11 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     width: 100%;
-    
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
   }
 
 `;
