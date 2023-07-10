@@ -23,7 +23,8 @@ export default function StyledComponentsRegistry({
   if (typeof window !== "undefined")
     return (
       <>
-        <GlobalStyle /> {children}
+        <GlobalStyle />
+        {children}
       </>
     );
 
