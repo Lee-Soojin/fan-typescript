@@ -69,6 +69,7 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
       --header-height: 70px;
+      --font-family: "Noto Sans KR", "sans-serif"
   }
 
   * {
