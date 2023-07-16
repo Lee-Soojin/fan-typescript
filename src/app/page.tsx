@@ -1,10 +1,16 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import { signIn } from "next-auth/react";
 
 const Home: React.FC = () => {
+  const handleSignIn = async () => {
+    await signIn();
+  };
+
   return (
     <div>
-      <Link href="/signin">시작하기</Link>
+      <button onClick={handleSignIn}>로그인</button>
     </div>
   );
 };
