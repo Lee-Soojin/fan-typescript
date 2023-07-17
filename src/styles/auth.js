@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 export const SigninLayout = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -10,6 +11,17 @@ export const SigninLayout = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   background-color: #212121;
+  > h1 {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
 `;
 
 export const SigninFormBox = styled.div`
@@ -17,34 +29,37 @@ export const SigninFormBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 917px;
-  height: 569px;
+  width: 700px;
+  height: fit-content;
   border-radius: 14px;
+  padding: 40px;
   background: #fff;
   > form {
+    width: 100%;
     > input {
       display: flex;
       justify-content: center;
       padding: 28px;
-      width: 694px;
-      height: 98px;
+      width: 100%;
+      height: fit-content;
+      padding: 20px 20px;
       border-radius: 8px;
       border: 1px solid #e3e3e3;
       background: #fff;
       color: #212121;
       font-family: var(--font-family);
-      font-size: 28px;
+      font-size: 20px;
       font-style: normal;
-      font-weight: 400;
       text-align: left;
+      font-weight: 400;
       line-height: 100%;
       &::placeholder {
         color: #d5d5d7;
         font-family: var(--font-family);
-        font-size: 28px;
+        font-size: 20px;
         font-style: normal;
-        font-weight: 400;
         text-align: left;
+        font-weight: 400;
         line-height: 100%;
       }
     }
@@ -59,14 +74,15 @@ export const SigninFormBox = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 694px;
-    height: 98px;
+    width: 100%;
+    min-width: 100%;
+    height: 72px;
     border-radius: 8px;
     background: #212121;
     color: #fff;
     text-align: center;
     font-family: var(--font-family);
-    font-size: 28px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
