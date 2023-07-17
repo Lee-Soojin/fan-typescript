@@ -1,9 +1,14 @@
 "use client";
 
 import { GoogleIcon, KakaoIcon, NaverIcon, SigninFormBox } from "@/styles/auth";
+import { signIn } from "next-auth/react";
 import React from "react";
 
 const SignInForm: React.FC = () => {
+  const handleSignIn = async (mode: string) => {
+    await signIn(mode);
+  };
+
   return (
     <SigninFormBox>
       <form>
@@ -14,13 +19,13 @@ const SignInForm: React.FC = () => {
       </form>
       <button>로그인하기</button>
       <div>
-        <button>
+        <button onClick={() => handleSignIn("kakao")}>
           <KakaoIcon />
         </button>
-        <button>
+        <button onClick={() => handleSignIn("google")}>
           <GoogleIcon />
         </button>
-        <button>
+        <button onClick={() => handleSignIn("naver")}>
           <NaverIcon />
         </button>
       </div>
