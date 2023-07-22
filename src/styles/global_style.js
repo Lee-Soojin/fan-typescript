@@ -25,9 +25,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 100;
     font-display: swap;
     src: local('Noto Sans KR'),
-    url(/src/fonts/NotoSansKR-Light.woff2) format('woff2'),
-    url(/src/fonts/NotoSansKR-Light.woff) format('woff'),
-    url(/src/fonts/NotoSansKR-Light.otf) format('otf');
+    url(/fonts/NotoSans-Light.woff2) format('woff2'),
+    url(/fonts/NotoSans-Light.woff) format('woff'),
+    url(/fonts/NotoSans-Light.otf) format('otf');
     unicode-range: U+0041-005A, U+0061-007A;
   }
 
@@ -37,11 +37,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     font-display: swap;
     src: local('Noto Sans KR'),
-    url(/src/fonts/NotoSansKR-Regular.woff2) format('woff2'),
-    url(/src/fonts/NotoSansKR-Regular.woff) format('woff'),
-    url(/src/fonts/NotoSansKR-Regular.otf) format('otf');
+    url(/fonts/NotoSans-Regular.woff2) format('woff2'),
+    url(/fonts/NotoSans-Regular.woff) format('woff'),
+    url(/fonts/NotoSans-Regular.otf) format('otf');
     unicode-range: U+0041-005A, U+0061-007A; 
-
   }
 
   @font-face {
@@ -50,9 +49,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     font-display: swap;
     src: local('Noto Sans KR'),
-    url(/src/fonts/NotoSansKR-Medium.woff2) format('woff2'),
-    url(/src/fonts/NotoSansKR-Medium.woff) format('woff'),
-    url(/src/fonts/NotoSansKR-Medium.otf) format('otf');
+    url(/fonts/NotoSans-Medium.woff2) format('woff2'),
+    url(/fonts/NotoSans-Medium.woff) format('woff'),
+    url(/fonts/NotoSans-Medium.otf) format('otf');
     unicode-range: U+0041-005A, U+0061-007A;
   }
   @font-face {
@@ -61,9 +60,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 700;
     font-display: swap;
     src: local('Noto Sans KR'),
-    url(/src/fonts/NotoSansKR-Bold.woff2) format('woff2'),
-    url(/src/fonts/NotoSansKR-Bold.woff) format('woff'),
-    url(/src/fonts/NotoSansKR-Bold.otf) format('otf');
+    url(/fonts/NotoSans-Bold.woff2) format('woff2'),
+    url(/fonts/NotoSans-Bold.woff) format('woff'),
+    url(/fonts/NotoSans-Bold.otf) format('otf');
     unicode-range: U+0041-005A, U+0061-007A;
   }
 
