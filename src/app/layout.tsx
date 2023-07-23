@@ -1,5 +1,6 @@
 import React from "react";
 import StyledComponentsRegistry from "./lib/registry";
+import AuthSession from "./authsession";
 
 export default function RootLayout({
   children,
@@ -9,7 +10,9 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <AuthSession>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </AuthSession>
       </body>
     </html>
   );
