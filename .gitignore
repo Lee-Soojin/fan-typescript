@@ -36,3 +36,4 @@ next-env.d.ts
 
 .env
 *google_credential.json
+*firebase-admin-sdk.json
