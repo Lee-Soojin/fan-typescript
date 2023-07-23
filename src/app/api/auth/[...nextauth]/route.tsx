@@ -2,8 +2,11 @@ import NextAuth from "next-auth";
 import NaverProvider from "next-auth/providers/naver";
 import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
+import { firestore } from "../../../lib/firebase";
+import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 
 export const authOptions = {
+  adapter: FirestoreAdapter(firestore),
   providers: [
     NaverProvider({
       clientId: process.env.NAVER_CLIENT_ID || "",
