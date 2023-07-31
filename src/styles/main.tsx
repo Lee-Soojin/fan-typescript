@@ -62,8 +62,8 @@ export const CreatePageLayout = styled(LayoutFrame)`
 
 interface CreateCutBoxProps {
   mode: string;
-  columns: number;
-  rows: number;
+  $columns: number;
+  $rows: number;
 }
 
 export const CreateCutBox = styled.div<CreateCutBoxProps>`
@@ -73,9 +73,9 @@ export const CreateCutBox = styled.div<CreateCutBoxProps>`
   > div.create_box__photo_grid {
     display: grid;
     grid-template-columns: ${(props) =>
-      props.columns && "repeat(" + props.columns + ",1fr)"};
+      props.$columns && "repeat(" + props.$columns + ",1fr)"};
     grid-template-rows: ${(props) =>
-      props.rows && "repeat(" + props.rows + ",1fr)"};
+      props.$rows && "repeat(" + props.$rows + ",1fr)"};
     padding: ${(props) =>
       props.mode === "cut4x2"
         ? "70px 10px"
@@ -133,7 +133,7 @@ export const CreateCustomBox = styled.div`
     border: none;
     cursor: pointer;
   }
-  > label#select-color {
+  > label.create_custom_box__select-color {
     display: flex;
     border-radius: 50%;
     height: 36px;
@@ -147,7 +147,7 @@ export const CreateCustomBox = styled.div`
   > input#select-color {
     display: none;
   }
-  > label#frame-image {
+  > label.create_custom_box__frame-image {
     display: flex;
     align-items: center;
     justify-content: center;
