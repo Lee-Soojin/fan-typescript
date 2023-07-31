@@ -111,6 +111,25 @@ export const CreateCutBox = styled.div<CreateCutBoxProps>`
         display: none;
       }
     }
+    > div.create_box__photo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      aspect-ratio: ${(props) =>
+        props.mode === "cut4x2"
+          ? "256 / 345"
+          : props.mode === "cut3x1"
+          ? "1 / 1"
+          : "7 / 4"};
+
+      > img {
+        object-fit: cover;
+        object-position: center;
+      }
+    }
   }
 `;
 
