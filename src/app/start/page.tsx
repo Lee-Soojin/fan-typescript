@@ -8,19 +8,19 @@ import Link from "next/link";
 const StartPage: React.FC = () => {
   return (
     <StartPageLayout>
-      <OptionBox>
+      <OptionBox mode="start">
         <div>
           <Image src="/images/cutphoto.png" alt="cut-photo" fill={true} />
         </div>
         <Link href="/create/cut">3~4컷</Link>
       </OptionBox>
-      <OptionBox>
+      <OptionBox mode="start">
         <div>
           <Image src="/images/polaroid.png" fill={true} alt="polaroid-photo" />
         </div>
         <Link href="/create/polaroid">폴라로이드</Link>
       </OptionBox>
-      <OptionBox style={{ border: "none" }}>
+      <OptionBox style={{ border: "none" }} mode="start">
         <div>
           <Image src="/images/cards.png" fill={true} alt="photocard-photo" />
         </div>

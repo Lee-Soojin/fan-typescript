@@ -19,7 +19,11 @@ export const StartPageLayout = styled(LayoutFrame)`
   background-color: #ffffff;
 `;
 
-export const OptionBox = styled.div`
+interface OptionBoxProps {
+  mode: string;
+}
+
+export const OptionBox = styled.div<OptionBoxProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,8 +33,8 @@ export const OptionBox = styled.div`
   margin: auto;
   border-right: 3px solid #d3d3d3;
   > div {
-    width: 360px;
-    height: 360px;
+    width: ${(props) => (props.mode === "polaroid" ? "300px" : "360px")};
+    height: ${(props) => (props.mode === "polaroid" ? "300px" : "360px")};
     position: relative;
     > img {
       object-fit: contain;
@@ -54,6 +58,13 @@ export const OptionBox = styled.div`
 `;
 
 export const CreatePageLayout = styled(LayoutFrame)`
+  width: 100%;
+  min-width: 100vw;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const CreatePolaroidPageLayout = styled(LayoutFrame)`
   width: 100%;
   min-width: 100vw;
   align-items: center;
