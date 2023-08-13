@@ -3,32 +3,20 @@
 import Image from "next/image";
 import React, { ChangeEvent, useState } from "react";
 import { CameraIcon, ImageIcon } from "@/styles/icon";
-import { CreateCustomBox, CreateCutBox } from "@/styles/main";
+import { ImageEditorBox, CreateCutBox } from "@/styles/main";
+import ImageEdtor from "./image_editor";
 
 type CreatePhotoPageProps = {
   mode: "4x1" | "4x2" | "3x1";
 };
 
 const CutsFrame = ({ mode }: CreatePhotoPageProps) => {
+  const [frameColor, setFrameColor] = useState<string | null>(null);
   const [cutImageUrl, setCutImageUrl] = useState<string[] | null>(null);
   const [frameImageUrl, setFrameImageUrl] = useState<string | null>(null);
-  const [uploadedFrameImg, setUploadedFrameImg] = useState<File | null>(null);
   const [uploadedCutImages, setUploadedCutImages] = useState<File[] | null>(
     null
   );
-
-  const handleChangeFrameImage = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-    if (file) {
-      setUploadedFrameImg(file);
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const imageUrl = event.target?.result as string;
-        setFrameImageUrl(imageUrl);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const handleChangeCutImage = (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -53,11 +41,27 @@ const CutsFrame = ({ mode }: CreatePhotoPageProps) => {
   };
   const arrayLength = cutMode[mode][0] * cutMode[mode][1];
 
+  const handleFrameStyle = (type: string, val: string) => {
+    if (type === "image") {
+      setFrameImageUrl(val);
+      setFrameColor(null);
+    } else {
+      setFrameColor(val);
+      setFrameImageUrl(null);
+    }
+  };
+
   return (
     <CreateCutBox mode={"cut4X1"} $columns={1} $rows={4}>
       <div
         className="create_box__photo_grid"
-        style={{ backgroundImage: "url(" + frameImageUrl + ")" }}
+        style={
+          frameImageUrl
+            ? { backgroundImage: "url(" + frameImageUrl + ")" }
+            : frameColor
+            ? { backgroundColor: frameColor }
+            : {}
+        }
       >
         {Array.from({ length: arrayLength }).map((x, i) =>
           cutImageUrl && cutImageUrl[i] ? (
@@ -66,7 +70,7 @@ const CutsFrame = ({ mode }: CreatePhotoPageProps) => {
                 src={cutImageUrl && cutImageUrl[i]}
                 alt={"cut-image" + i}
                 fill={true}
-                sizes="(max-width: 256px)"
+                sizes="(max-width: 256px) "
               />
             </div>
           ) : (
@@ -86,25 +90,7 @@ const CutsFrame = ({ mode }: CreatePhotoPageProps) => {
           )
         )}
       </div>
-      <CreateCustomBox>
-        <button>이미지 생성</button>
-        <label
-          htmlFor="select-color"
-          className="create_custom_box__select-color"
-        >
-          <Image
-            src="/images/gradient.png"
-            alt="select-color"
-            fill={true}
-            sizes="(max-width: 36px)"
-          />
-        </label>
-        <input type="color" id="select-color" />
-        <label htmlFor="frame-image" className="create_custom_box__frame-image">
-          <CameraIcon />
-        </label>
-        <input type="file" id="frame-image" onChange={handleChangeFrameImage} />
-      </CreateCustomBox>
+      <ImageEdtor handleFrameStyle={handleFrameStyle} />
     </CreateCutBox>
   );
 };
